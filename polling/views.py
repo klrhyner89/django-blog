@@ -24,4 +24,3 @@ class PollDetailView(DetailView):
 
         context = {'object': poll}
         return render(request, 'polling/detail.html', context)
-    
