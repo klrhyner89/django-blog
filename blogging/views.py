@@ -29,12 +29,12 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
 
-    model = Post
-    # queryset = Post.objects.exclude(published_date__exact=None)
+    # model = Post
+    queryset = Post.objects.exclude(published_date__exact=None)
     template_name = 'blogging/detail.html'
 
-    def get(self, request, *args, **kwargs):
-        published = Post.objects.exclude(published_date__exact=None)
-        post = published.get(pk=self.get_object().pk)
-        context = {'object': post}
-        return render(request, 'blogging/detail.html', context)
+    # def get(self, request, *args, **kwargs):
+    #     published = Post.objects.exclude(published_date__exact=None)
+    #     post = published.get(pk=self.get_object().pk)
+    #     context = {'object': post}
+    #     return render(request, 'blogging/detail.html', context)
